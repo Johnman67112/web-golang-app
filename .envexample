@@ -1,0 +1,6 @@
+#Postgres
+USER=postgres
+DBNAME=
+PASSWORD=
+HOST=localhost
+SSLMODE=disable
