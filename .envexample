@@ -1,6 +1,10 @@
 #Postgres
+DBPORT=":5432"
 USER=postgres
 DBNAME=
 PASSWORD=
 HOST=localhost
 SSLMODE=disable
+
+#App Port
+PORT=":8000"
