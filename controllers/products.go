@@ -23,6 +23,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "New", nil)
 }
 
+//Inserts new product
 func Insert(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		name := r.FormValue("name")
@@ -37,6 +38,7 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 301)
 }
 
+//Parse number fields from insert request
 func productNumParse(price, quantity string) (float64, int) {
 	convertedPrice, err := strconv.ParseFloat(price, 64)
 	if err != nil {
@@ -48,4 +50,10 @@ func productNumParse(price, quantity string) (float64, int) {
 		log.Println("Error on quantity conversion")
 	}
 	return convertedPrice, convertedQuantity
+}
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+	productId := r.URL.Query().Get("id")
+	models.DeleteProduct(productId)
+	http.Redirect(w, r, "/", 301)
 }

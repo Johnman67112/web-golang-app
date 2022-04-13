@@ -7,7 +7,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-//By now loads .env and execute index
+//By now loads .env and routes
 func main() {
 	godotenv.Load(".env")
 	routes.LoadRoutes()
